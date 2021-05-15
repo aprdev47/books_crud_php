@@ -43,7 +43,7 @@ class BooksController
     {
         $data = $req->getJSON();
         $errors = $this->validateBookData($data);
-        if(!empty($errors)) $res->status(400)->toJSON(['success' => false,'errors' => $errors]);
+        if(!empty($errors)) $res->status(422)->toJSON(['success' => false,'errors' => $errors]);
         else{
             $book = new Book();
             $book->isbn = $data->isbn;
@@ -64,7 +64,7 @@ class BooksController
         $isbn = $req->params[0];
         $data = $req->getJSON();
         $errors = $this->validateBookData($data);
-        if(!empty($errors)) $res->status(400)->toJSON(['success' => false,'errors' => $errors]);
+        if(!empty($errors)) $res->status(4)->toJSON(['success' => false,'errors' => $errors]);
         else{
             $book = new Book();
             $book->isbn = $data->isbn;
